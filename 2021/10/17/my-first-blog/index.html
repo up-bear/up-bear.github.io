@@ -107,6 +107,8 @@
 </ul>
           <ul class="wrap-list dark">
   
+    <li><a href="/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">🏷️ 搭建博客</a></li>
+  
 </ul>
         </div>
       </div>
@@ -129,8 +131,19 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><h2 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h2><p>标题三</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fskhkfsj</span><br></pre></td></tr></table></figure>
+        <h1 id="Hexo-GitHub-搭建个人博客"><a href="#Hexo-GitHub-搭建个人博客" class="headerlink" title="Hexo + GitHub 搭建个人博客"></a>Hexo + GitHub 搭建个人博客</h1><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><pre><code>npm、git
+</code></pre>
+<h2 id="使用命令（均在git-bash下执行）"><a href="#使用命令（均在git-bash下执行）" class="headerlink" title="使用命令（均在git bash下执行）"></a>使用命令（均在git bash下执行）</h2><p>安装Hexo博客框架</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<p>初始化项目文件夹</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init 文件夹名称（后面不跟文件名称时，需要自己创建文件，并在切换到对应文件路径下执行该命令</span><br></pre></td></tr></table></figure>
+<p>安装npm依赖。执行上条命令时，会提示dependencies 下载失败。按照提示运行命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line">有时使用npm下载不成，可以使用cnpm install，多运行几次就好了（亲试）</span><br></pre></td></tr></table></figure>
+<p>本地预览博客是否搭建成功。执行以下两条命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g	#编译静态文件</span><br><span class="line">hexo s	#本地预览</span><br></pre></td></tr></table></figure>
+<p>访问 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> 。出现以下页面表示本地搭建成功。</p>
+<p><img src="https://gitee.com/lsc180/images/raw/master/img/20201105103838.png" alt="img"></p>
+<h2 id="上线到Github"><a href="#上线到Github" class="headerlink" title="上线到Github"></a>上线到Github</h2><p>准备工作：获取SSH密钥<br>    查看本地有无SSH密钥<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br></pre></td></tr></table></figure><br>    如果没有则生成密钥。<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;你的邮箱&quot;		#会提示你设置密钥文件名称，和密码，两者都可以为空，直接回车</span><br></pre></td></tr></table></figure><br>    再次查看密钥文件，查询结果出现***.ssh文件表示成功，同样会显示密钥路径。<br>Github设置SSH密钥<br>    在setting中选中SSH and GPG keys，点击New SSH key，密钥名称任取，密钥内容使用记事本打开生成的密钥文件，复制过去，就ok了。<br>安装Github部署插件<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><br>Github创建新库 username.github.io。修改项目目录下的配置文件。如下所示。<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line"> 		type: git</span><br><span class="line"> 		repo: git@github.com:up-bear/up-bear.github.io.git</span><br><span class="line">		 branch: master</span><br></pre></td></tr></table></figure><br>部署命令<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br><span class="line">每次修改博客后，需要使用以下命令重新部署</span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><br>访问博客username.github.io。</p>
 
       </section>
 
@@ -199,7 +212,7 @@
         <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
 </svg>
-        0
+        1
       </div>
     </div>
   </div>
@@ -244,7 +257,7 @@
   </div>
   <div class="widget-body">
     <div class="tags-cloud">
-      
+      <a href="/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;" class="tags-cloud-0">搭建博客</a>
     </div>
   </div>
 </section>
