@@ -38,6 +38,9 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
+<link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
 </head>
 <body>
   <div class="root-container">
@@ -145,9 +148,9 @@
 <p><img src="https://gitee.com/lsc180/images/raw/master/img/20201105103838.png" alt="img"></p>
 <h2 id="上线到Github"><a href="#上线到Github" class="headerlink" title="上线到Github"></a>上线到Github</h2><p>准备工作：获取SSH密钥<br>    查看本地有无SSH密钥<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br></pre></td></tr></table></figure><br>    如果没有则生成密钥。<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;你的邮箱&quot;		#会提示你设置密钥文件名称，和密码，两者都可以为空，直接回车</span><br></pre></td></tr></table></figure><br>    再次查看密钥文件，查询结果出现***.ssh文件表示成功，同样会显示密钥路径。<br>Github设置SSH密钥<br>    在setting中选中SSH and GPG keys，点击New SSH key，密钥名称任取，密钥内容使用记事本打开生成的密钥文件，复制过去，就ok了。<br>安装Github部署插件<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><br>Github创建新库 username.github.io。修改项目目录下的配置文件。如下所示。<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line"> 		type: git</span><br><span class="line"> 		repo: git@github.com:up-bear/up-bear.github.io.git</span><br><span class="line">		 branch: master</span><br></pre></td></tr></table></figure><br>部署命令<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br><span class="line">每次修改博客后，需要使用以下命令重新部署</span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><br>访问博客网址username.github.io。</p>
 
-			<script>
-				console.error("Error: [hexo-tag-aplayer] Meting support is disabled, cannot resolve the meting tags properly.");
-			</script>
+    <div id="aplayer-YYbyIOea" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="523845661" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#FF4081"
+    ></div>
 
 <p>你大爷！</p>
 
