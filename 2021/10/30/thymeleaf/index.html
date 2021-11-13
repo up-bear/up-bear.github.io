@@ -22,7 +22,7 @@
 
   
 
-  <title>aplayer | upbear</title>
+  <title>bootstrap | upbear</title>
 
   
 
@@ -96,20 +96,20 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">aplayer</h1>
+          <h1 class="title-wrap">bootstrap</h1>
           <h2 class="title-sub-wrap">
             <strong>upbear</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2021-10-30T01:01:46.000Z" itemprop="datePublished">2021-10-30</time>
+            <time  class="article-date" datetime="2021-10-30T07:17:24.000Z" itemprop="datePublished">2021-10-30</time>
           </h2>
           <ul class="wrap-list dark">
   
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/aplayer/">🏷️ aplayer</a></li>
+    <li><a href="/tags/bootstrap/">🏷️ bootstrap</a></li>
   
-    <li><a href="/tags/%E5%8D%9A%E5%AE%A2/">🏷️ 博客</a></li>
+    <li><a href="/tags/thymeleaf/">🏷️ thymeleaf</a></li>
   
 </ul>
         </div>
@@ -133,16 +133,9 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>使用aplayer播放器</p>
-<h3 id="安装aplayer"><a href="#安装aplayer" class="headerlink" title="安装aplayer"></a>安装aplayer</h3><p>使用命令fs<br>    npm install aplayer –save</p>
-<h3 id="文章添加音乐"><a href="#文章添加音乐" class="headerlink" title="文章添加音乐"></a>文章添加音乐</h3><p>在文章头部Front-matter中添加语句，否则不成功<br>    aplayer: true<br>在文章正文中添加以下语句。（具体字段属性请参考官方文档）</p>
-<h3 id="方法2：使用hexo-tag-aplayer插件实现"><a href="#方法2：使用hexo-tag-aplayer插件实现" class="headerlink" title="方法2：使用hexo-tag-aplayer插件实现"></a>方法2：使用hexo-tag-aplayer插件实现</h3><p>安装插件<br>    npm install –save hexo-tag-aplayer<br>在hexo的配置文件 _config.yml 中添加以下语句。<br>    aplayer:<br>        true<br>在文章正文添加以下语句。（具体字段属性请参考官方文档）<br>使用hexo-tag-aplayer有个小问题，音乐播放列表列表不能折叠。添加”listfolded:true”后音乐页面直接不能显示了。</p>
-
-			<script>
-				console.error("Error: [hexo-tag-aplayer] Specified asset file not found (caffeine.mp3)");
-			</script>
-
-<p>wocao</p>
+        <h3 id="动态包含页面"><a href="#动态包含页面" class="headerlink" title="动态包含页面"></a>动态包含页面</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="string">&quot;#head&quot;</span>).load(<span class="string">&quot;public/head.html&quot;</span>);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="IDEA创建SpringBoot项目"><a href="#IDEA创建SpringBoot项目" class="headerlink" title="IDEA创建SpringBoot项目"></a>IDEA创建SpringBoot项目</h3><h4 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h4><p>重定向的默认访问路径是Resource/templates,想要访问Resource/static下的静态资源返回字符串要明确添加redirect，例如 return “redirect:html/hello.html”</p>
+<h3 id="bootstrap-amp-thymeleaf"><a href="#bootstrap-amp-thymeleaf" class="headerlink" title="bootstrap&amp;thymeleaf"></a>bootstrap&amp;thymeleaf</h3><p>二者不兼容：bootstrap静态页面经由thymeleaf动态打开后静态页面样式消失</p>
 
       </section>
 
@@ -155,8 +148,8 @@
     
     <div class="card-text">
       
-        <a href="/2021/10/30/thymeleaf/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">bootstrap</h2>
+        <a href="/2021/10/31/html/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">html</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -170,8 +163,8 @@
     
     <div class="card-text">
       
-        <a href="/2021/10/17/my-first-blog/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">my-first-blog</h2>
+        <a href="/2021/10/30/aplayer/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">aplayer</h2>
         </a>
       
       <div class="card-text--row">Older</div>

@@ -22,7 +22,7 @@
 
   
 
-  <title>aplayer | upbear</title>
+  <title>html | upbear</title>
 
   
 
@@ -96,20 +96,18 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">aplayer</h1>
+          <h1 class="title-wrap">html</h1>
           <h2 class="title-sub-wrap">
             <strong>upbear</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2021-10-30T01:01:46.000Z" itemprop="datePublished">2021-10-30</time>
+            <time  class="article-date" datetime="2021-10-31T07:26:38.000Z" itemprop="datePublished">2021-10-31</time>
           </h2>
           <ul class="wrap-list dark">
   
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/aplayer/">🏷️ aplayer</a></li>
-  
-    <li><a href="/tags/%E5%8D%9A%E5%AE%A2/">🏷️ 博客</a></li>
+    <li><a href="/tags/html/">🏷️ html</a></li>
   
 </ul>
         </div>
@@ -133,22 +131,21 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>使用aplayer播放器</p>
-<h3 id="安装aplayer"><a href="#安装aplayer" class="headerlink" title="安装aplayer"></a>安装aplayer</h3><p>使用命令fs<br>    npm install aplayer –save</p>
-<h3 id="文章添加音乐"><a href="#文章添加音乐" class="headerlink" title="文章添加音乐"></a>文章添加音乐</h3><p>在文章头部Front-matter中添加语句，否则不成功<br>    aplayer: true<br>在文章正文中添加以下语句。（具体字段属性请参考官方文档）</p>
-<h3 id="方法2：使用hexo-tag-aplayer插件实现"><a href="#方法2：使用hexo-tag-aplayer插件实现" class="headerlink" title="方法2：使用hexo-tag-aplayer插件实现"></a>方法2：使用hexo-tag-aplayer插件实现</h3><p>安装插件<br>    npm install –save hexo-tag-aplayer<br>在hexo的配置文件 _config.yml 中添加以下语句。<br>    aplayer:<br>        true<br>在文章正文添加以下语句。（具体字段属性请参考官方文档）<br>使用hexo-tag-aplayer有个小问题，音乐播放列表列表不能折叠。添加”listfolded:true”后音乐页面直接不能显示了。</p>
-
-			<script>
-				console.error("Error: [hexo-tag-aplayer] Specified asset file not found (caffeine.mp3)");
-			</script>
-
-<p>wocao</p>
-
+        <h4 id="textarea"><a href="#textarea" class="headerlink" title="textarea"></a>textarea</h4><p>textarea标签：<br>    cols:字符列数<br>    rows:字符行数<br>    readonly:值true/false 是否设为只读<br>去除首行缩进：将首尾标签放在同一行</p>
+<pre><code>&lt;textarea&gt;hello&lt;/textarea&gt;
+</code></pre>
+<p>去除下拉斜线：添加属性 resize: none<br>    <textarea style="resize: none;">hello</textarea><br>去除滚动条：添加属性 overflow: hidden<br>    <textarea style="overflow: hidden;">hello</textarea><br>去除边框：添加属性border: none<br>    <textarea style="border: none;">hello</textarea><br>去除点击文本时的边框：添加属性 outline: none<br>    <textarea style="outline: none;">hello</textarea><br>显示高度自适应：    <textarea  autoHeight="true" readonly="readonly" style="resize:         none; border: none; overflow: hidden; outline:     
+    none;">qwerrtyuiopasdfghjklzxcnm1234567890qwertyuiopasdfghjklzxcvbnm<br>    </textarea></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        $.fn.autoHeight = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;    </span><br><span class="line">            <span class="function"><span class="keyword">function</span> <span class="title">autoHeight</span>(<span class="params">elem</span>)</span>&#123;</span><br><span class="line">                elem.style.height = <span class="string">&#x27;auto&#x27;</span>;</span><br><span class="line">                elem.scrollTop = <span class="number">0</span>; <span class="comment">//防抖动</span></span><br><span class="line">                elem.style.height = elem.scrollHeight + <span class="string">&#x27;px&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">this</span>.each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                autoHeight(<span class="built_in">this</span>);</span><br><span class="line">                $(<span class="built_in">this</span>).on(<span class="string">&#x27;keyup&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                    autoHeight(<span class="built_in">this</span>);</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;);     </span><br><span class="line">&#125;                </span><br><span class="line">   $(<span class="string">&#x27;textarea[autoHeight]&#x27;</span>).autoHeight();    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>textarea自适应小问题：实际textarea的宽度比文字行数多了一行</p>
+<p>![屏幕截图 2021-10-31 174709](C:\Users\15138\Desktop\屏幕截图 2021-10-31 174709.png)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--单个媒体对象 start--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;media&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;media-left&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;media-object&quot;</span> <span class="attr">src</span>=<span class="string">&quot;../images/72534562.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;头像&quot;</span> <span class="attr">width</span>=<span class="string">&quot;64px&quot;</span> <span class="attr">height</span>=<span class="string">&quot;64px&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h5</span> <span class="attr">style</span>=<span class="string">&quot;margin: 0px;text-align: center;&quot;</span>&gt;</span>用户名<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;media-body&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h4</span> <span class="attr">class</span>=<span class="string">&quot;media-heading&quot;</span>&gt;</span>Media heading<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">cols</span>=<span class="string">&quot;50&quot;</span> <span class="attr">rows</span>=<span class="string">&quot;3&quot;</span> <span class="attr">style</span>=<span class="string">&quot;resize: none; border: none; overflow: hidden; outline: none;&quot;</span> <span class="attr">readonly</span>=<span class="string">&quot;true&quot;</span>&gt;</span>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--单个媒体对象 end--&gt;</span></span><br></pre></td></tr></table></figure>
       </section>
 
       
       
         <nav class="article-nav">
+          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
@@ -157,21 +154,6 @@
       
         <a href="/2021/10/30/thymeleaf/" itemprop="url">
           <h2 class="card-text--title text-ellipsis">bootstrap</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
-          
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/2021/10/17/my-first-blog/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">my-first-blog</h2>
         </a>
       
       <div class="card-text--row">Older</div>
