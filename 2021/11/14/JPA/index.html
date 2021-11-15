@@ -22,7 +22,7 @@
 
   
 
-  <title>bootstrap | upbear</title>
+  <title>SpringBoot JPA使用 | upbear</title>
 
   
 
@@ -96,20 +96,18 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">bootstrap</h1>
+          <h1 class="title-wrap">SpringBoot JPA使用</h1>
           <h2 class="title-sub-wrap">
             <strong>upbear</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2021-10-30T07:17:24.000Z" itemprop="datePublished">2021-10-30</time>
+            <time  class="article-date" datetime="2021-11-14T08:39:49.000Z" itemprop="datePublished">2021-11-14</time>
           </h2>
           <ul class="wrap-list dark">
   
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/bootstrap/">🏷️ bootstrap</a></li>
-  
-    <li><a href="/tags/thymeleaf/">🏷️ thymeleaf</a></li>
+    <li><a href="/tags/JPA/">🏷️ JPA</a></li>
   
 </ul>
         </div>
@@ -133,15 +131,17 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h3 id="动态包含页面"><a href="#动态包含页面" class="headerlink" title="动态包含页面"></a>动态包含页面</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="string">&quot;#head&quot;</span>).load(<span class="string">&quot;public/head.html&quot;</span>);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="IDEA创建SpringBoot项目"><a href="#IDEA创建SpringBoot项目" class="headerlink" title="IDEA创建SpringBoot项目"></a>IDEA创建SpringBoot项目</h3><h4 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h4><p>重定向的默认访问路径是Resource/templates,想要访问Resource/static下的静态资源返回字符串要明确添加redirect，例如 return “redirect:html/hello.html”</p>
-<h3 id="bootstrap-amp-thymeleaf"><a href="#bootstrap-amp-thymeleaf" class="headerlink" title="bootstrap&amp;thymeleaf"></a>bootstrap&amp;thymeleaf</h3><p>二者不兼容：bootstrap静态页面经由thymeleaf动态打开后静态页面样式消失</p>
+        <h3 id="pom依赖配置"><a href="#pom依赖配置" class="headerlink" title="pom依赖配置"></a>pom依赖配置</h3><h4 id="jpa本身配置"><a href="#jpa本身配置" class="headerlink" title="jpa本身配置"></a>jpa本身配置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="mysql驱动（mysql数据库操作必配）"><a href="#mysql驱动（mysql数据库操作必配）" class="headerlink" title="mysql驱动（mysql数据库操作必配）"></a>mysql驱动（mysql数据库操作必配）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="实体类注解"><a href="#实体类注解" class="headerlink" title="实体类注解"></a>实体类注解</h3><p>类注解：@Entity、@Table。导入的包为：javax.persistence.*</p>
 
       </section>
 
       
       
         <nav class="article-nav">
+          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
@@ -150,21 +150,6 @@
       
         <a href="/2021/10/31/html/" itemprop="url">
           <h2 class="card-text--title text-ellipsis">html</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
-          
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/2021/10/30/aplayer/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">aplayer</h2>
         </a>
       
       <div class="card-text--row">Older</div>
