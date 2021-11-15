@@ -134,8 +134,9 @@
         <h3 id="pom依赖配置"><a href="#pom依赖配置" class="headerlink" title="pom依赖配置"></a>pom依赖配置</h3><h4 id="jpa本身配置"><a href="#jpa本身配置" class="headerlink" title="jpa本身配置"></a>jpa本身配置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="mysql驱动（mysql数据库操作必配）"><a href="#mysql驱动（mysql数据库操作必配）" class="headerlink" title="mysql驱动（mysql数据库操作必配）"></a>mysql驱动（mysql数据库操作必配）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="实体类注解"><a href="#实体类注解" class="headerlink" title="实体类注解"></a>实体类注解</h3><p>类注解：@Entity、@Table。导入的包为：javax.persistence.*</p>
-
+<h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h3><h4 id="一、创建实体类"><a href="#一、创建实体类" class="headerlink" title="一、创建实体类"></a>一、创建实体类</h4><p>实体类标注注解：@Entity、@Table。注意导入的包为：javax.persistence.*</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="二、继承接口"><a href="#二、继承接口" class="headerlink" title="二、继承接口"></a>二、继承接口</h4><h4 id="三、使用接口类执行CRUD操作"><a href="#三、使用接口类执行CRUD操作" class="headerlink" title="三、使用接口类执行CRUD操作"></a>三、使用接口类执行CRUD操作</h4>
       </section>
 
       
