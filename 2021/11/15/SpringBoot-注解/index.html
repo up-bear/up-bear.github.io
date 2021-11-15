@@ -22,7 +22,7 @@
 
   
 
-  <title>bootstrap | upbear</title>
+  <title>SpringBoot-注解 | upbear</title>
 
   
 
@@ -96,20 +96,20 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">bootstrap</h1>
+          <h1 class="title-wrap">SpringBoot-注解</h1>
           <h2 class="title-sub-wrap">
             <strong>upbear</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2021-10-30T07:17:24.000Z" itemprop="datePublished">2021-10-30</time>
+            <time  class="article-date" datetime="2021-11-15T12:44:24.000Z" itemprop="datePublished">2021-11-15</time>
           </h2>
           <ul class="wrap-list dark">
   
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/bootstrap/">🏷️ bootstrap</a></li>
+    <li><a href="/tags/SpringBoot/">🏷️ SpringBoot</a></li>
   
-    <li><a href="/tags/thymeleaf/">🏷️ thymeleaf</a></li>
+    <li><a href="/tags/%E6%B3%A8%E8%A7%A3/">🏷️ 注解</a></li>
   
 </ul>
         </div>
@@ -133,9 +133,10 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h3 id="动态包含页面"><a href="#动态包含页面" class="headerlink" title="动态包含页面"></a>动态包含页面</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="string">&quot;#head&quot;</span>).load(<span class="string">&quot;public/head.html&quot;</span>);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="IDEA创建SpringBoot项目"><a href="#IDEA创建SpringBoot项目" class="headerlink" title="IDEA创建SpringBoot项目"></a>IDEA创建SpringBoot项目</h3><h4 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h4><p>重定向的默认访问路径是Resource/templates,想要访问Resource/static下的静态资源返回字符串要明确添加redirect，例如 return “redirect:html/hello.html”</p>
-<h3 id="bootstrap-amp-thymeleaf"><a href="#bootstrap-amp-thymeleaf" class="headerlink" title="bootstrap&amp;thymeleaf"></a>bootstrap&amp;thymeleaf</h3><p>二者不兼容：bootstrap静态页面经由thymeleaf动态打开后静态页面样式消失</p>
+        <h2 id="Configuration和-Bean"><a href="#Configuration和-Bean" class="headerlink" title="@Configuration和@Bean"></a>@Configuration和@Bean</h2><h3 id="Configuration"><a href="#Configuration" class="headerlink" title="@Configuration"></a>@Configuration</h3><p>注释类，向SpringBoot表示该类为一个配置类。该注解有一个属性proxyBeanMethods，默认为true，表示该类被SpringBoot所代理，可以理解为该被SpringBoot托管。<br>@Configuration配置类本身也是一个组件，组件ID为类名（首字母小写）。</p>
+<h3 id="Bean"><a href="#Bean" class="headerlink" title="@Bean"></a>@Bean</h3><p>注释方法，和@Configuration组合使用，表示向IOC容器中添加一个组件，组件ID默认为方法名，组件实例为方法的返回值。<br>当@Configuration的proxyBeanMethods=true时，当使用类对象调用注解了@Bean的方法时，SpringBoot会去容器中寻找该组件，返回该组件的引用，而不是重新构造一个对象实例。多次从获取时，仍然引用的是容器中组件实例，即该方法的返回值保持单实例。<br>当@Configuration的proxyBeanMethods=false时，表示配置类不会由SpringBoot所代理，使用类对象调用注解@Bean方法时，SpringBoot不会去容器中寻找组件，而是直接创建一个实例，每次调用都会创建不同的实例。</p>
+<h3 id="组件依赖："><a href="#组件依赖：" class="headerlink" title="组件依赖："></a>组件依赖：</h3><p>小结：注解@Bean和@Configuration表示在SpringBoot启动时，像容器中添加一个组件。但是如果proxyBeanMethods=true，表示该类被SpringBoot代理。<br>注意：如果使用普通方式，通过构造方法创建是实例时，和注解@Configuration、@Bean没有任何关系。</p>
+<h2 id="Import"><a href="#Import" class="headerlink" title="@Import"></a>@Import</h2><p>注释类。表示向容器中添加组件。<br>使用方式：@Import(“<em><strong>class”, “</strong></em>.class”)，组件名为全类名</p>
 
       </section>
 
@@ -143,28 +144,14 @@
       
         <nav class="article-nav">
           
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/2021/10/31/html/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">html</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
     <div class="card-text">
       
-        <a href="/2021/10/30/aplayer/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">aplayer</h2>
+        <a href="/2021/11/14/JPA/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">SpringBoot JPA使用</h2>
         </a>
       
       <div class="card-text--row">Older</div>
