@@ -22,7 +22,7 @@
 
   
 
-  <title>SpringBoot-注解 | upbear</title>
+  <title>重载与重写 | upbear</title>
 
   
 
@@ -96,20 +96,18 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">SpringBoot-注解</h1>
+          <h1 class="title-wrap">重载与重写</h1>
           <h2 class="title-sub-wrap">
             <strong>upbear</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2021-11-15T12:44:24.000Z" itemprop="datePublished">2021-11-15</time>
+            <time  class="article-date" datetime="2021-11-16T11:56:40.000Z" itemprop="datePublished">2021-11-16</time>
           </h2>
           <ul class="wrap-list dark">
   
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/SpringBoot/">🏷️ SpringBoot</a></li>
-  
-    <li><a href="/tags/%E6%B3%A8%E8%A7%A3/">🏷️ 注解</a></li>
+    <li><a href="/tags/java/">🏷️ java</a></li>
   
 </ul>
         </div>
@@ -133,10 +131,32 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h2 id="Configuration和-Bean"><a href="#Configuration和-Bean" class="headerlink" title="@Configuration和@Bean"></a>@Configuration和@Bean</h2><h3 id="Configuration"><a href="#Configuration" class="headerlink" title="@Configuration"></a>@Configuration</h3><p>注释类，向SpringBoot表示该类为一个配置类。该注解有一个属性proxyBeanMethods，默认为true，表示该类被SpringBoot所代理，可以理解为该被SpringBoot托管。<br>@Configuration配置类本身也是一个组件，组件ID为类名（首字母小写）。</p>
-<h3 id="Bean"><a href="#Bean" class="headerlink" title="@Bean"></a>@Bean</h3><p>注释方法，和@Configuration组合使用，表示向IOC容器中添加一个组件，组件ID默认为方法名，组件实例为方法的返回值。<br>当@Configuration的proxyBeanMethods=true时，当使用类对象调用注解了@Bean的方法时，SpringBoot会去容器中寻找该组件，返回该组件的引用，而不是重新构造一个对象实例。多次从获取时，仍然引用的是容器中组件实例，即该方法的返回值保持单实例。<br>当@Configuration的proxyBeanMethods=false时，表示配置类不会由SpringBoot所代理，使用类对象调用注解@Bean方法时，SpringBoot不会去容器中寻找组件，而是直接创建一个实例，每次调用都会创建不同的实例。</p>
-<h3 id="组件依赖："><a href="#组件依赖：" class="headerlink" title="组件依赖："></a>组件依赖：</h3><p>小结：注解@Bean和@Configuration表示在SpringBoot启动时，像容器中添加一个组件。但是如果proxyBeanMethods=true，表示该类被SpringBoot代理。<br>注意：如果使用普通方式，通过构造方法创建是实例时，和注解@Configuration、@Bean没有任何关系。</p>
-<h2 id="Import"><a href="#Import" class="headerlink" title="@Import"></a>@Import</h2><p>注释类。表示向容器中添加组件。<br>使用方式：@Import(“<em><strong>class”, “</strong></em>.class”)，组件名为全类名</p>
+        <h3 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h3><p>描述：一个类中，同一个方法名，有用多个参数类型或数量不同的方法实现，则称之为方法重载。<br>代码示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class A&#123;</span><br><span class="line">	public void methodA()&#123;&#125;;</span><br><span class="line">	public void methodA(int a)&#123;&#125;;</span><br><span class="line">    public void methodA(String str)&#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h3><p>描述：子类继承父类，并对继承的父类方法进行重新实现的过程，称之为方法重写。<br>代码示例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class Father&#123;</span><br><span class="line">	public String method1()&#123;</span><br><span class="line">		return &quot;father&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Son extends Father&#123;</span><br><span class="line">	public String method1()&#123;</span><br><span class="line">		return &quot;son&quot;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="向上转型与向下转型"><a href="#向上转型与向下转型" class="headerlink" title="向上转型与向下转型"></a>向上转型与向下转型</h3><h4 id="向上转型"><a href="#向上转型" class="headerlink" title="向上转型"></a>向上转型</h4><p>描述：把子类的对象实例赋值给父类的引用。<br>代码示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Father&#123;</span><br><span class="line">	public void method1()&#123;</span><br><span class="line">		System.out.println(&quot;father&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class B extends Father&#123;</span><br><span class="line">	public void method1()&#123;</span><br><span class="line">		System.out.println(&quot;son&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		Father f = new Son();	//向上转型,将子类实例赋值给父类引用。可以理解为把子类对象向上转换成父类对象。 </span><br><span class="line">		f.method1();	//输出结果为&quot;son&quot;,而不是&quot;father&quot;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过向上转型的获得的对象引用，在调用方法时，只能调用父类中已有的方法，但执行的方法体是子类的方法。</p>
+<p>易混淆情况：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class Father&#123;</span><br><span class="line">	public void method1()&#123;</span><br><span class="line">		System.out.println(&quot;father&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public void method2()&#123;</span><br><span class="line">		System.out.println(&quot;father.method2&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class B extends Father&#123;</span><br><span class="line">	public void method1()&#123;</span><br><span class="line">		System.out.println(&quot;son&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		Father f = new Son();	//向上转型,将子类实例赋值给父类引用。可以理解为把子类对象向上转换成父类对象。 </span><br><span class="line">		f.method2();	//输出结果为&quot;father.method2&quot;,method2()方法没有被子类B重写，是从父类A中继承过来的，也是类B的方法不要理解为method2不是B的方法。</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class Father &#123;</span><br><span class="line">    public String method1()&#123;</span><br><span class="line">        return &quot;father&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Son extends Father&#123;</span><br><span class="line">    public String method1()&#123;</span><br><span class="line">        return &quot;son&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String method2()&#123;</span><br><span class="line">        return &quot;Son.method2&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        Father f = new Son();</span><br><span class="line">        //System.out.println(f.method2());	该行会提示报错，因为f此时是Father类型，没有method2()方法</span><br><span class="line">        System.out.println(((Son)f).method2());	//此时再使用向下转型，便不会报错。输出结果为&quot;Son.method2&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="向上转型经典例题"><a href="#向上转型经典例题" class="headerlink" title="向上转型经典例题"></a>向上转型经典例题</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">    public String show(D obj) &#123;</span><br><span class="line">        return (&quot;A and D&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String show(A obj) &#123;</span><br><span class="line">        return (&quot;A and A&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class B extends A&#123;</span><br><span class="line">    public String show(B obj)&#123;</span><br><span class="line">        return (&quot;B and B&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String show(A obj)&#123;</span><br><span class="line">        return (&quot;B and A&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class C extends B&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class D extends B&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Demo &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        A a1 = new A();</span><br><span class="line">        A a2 = new B();</span><br><span class="line">        B b = new B();</span><br><span class="line">        C c = new C();</span><br><span class="line">        D d = new D();</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;1--&quot; + a1.show(b));</span><br><span class="line">        System.out.println(&quot;2--&quot; + a1.show(c));</span><br><span class="line">        System.out.println(&quot;3--&quot; + a1.show(d));</span><br><span class="line">        System.out.println(&quot;4--&quot; + a2.show(b));</span><br><span class="line">        System.out.println(&quot;5--&quot; + a2.show(c));</span><br><span class="line">        System.out.println(&quot;6--&quot; + a2.show(d));</span><br><span class="line">        System.out.println(&quot;7--&quot; + b.show(b));</span><br><span class="line">        System.out.println(&quot;8--&quot; + b.show(c));</span><br><span class="line">        System.out.println(&quot;9--&quot; + b.show(d));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//结果：</span><br><span class="line">//1--A and A</span><br><span class="line">//2--A and A</span><br><span class="line">//3--A and D</span><br><span class="line">//4--B and A</span><br><span class="line">//5--B and A</span><br><span class="line">//6--A and D</span><br><span class="line">//7--B and B</span><br><span class="line">//8--B and B</span><br><span class="line">//9--A and D</span><br><span class="line"></span><br><span class="line">//能看懂这个结果么？先自分析一下。</span><br></pre></td></tr></table></figure>
+<p>这个例子是非常复杂的啦，要想完全理解后面几个输出结果还要知道一条重要知识：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">继承链中对象方法的调用的优先级：this.show(O)、super.show(O)、this.show((super)O)、super.show((super)O)</span><br><span class="line">(其实按照我前面的理解，感觉这一条原则不要也行，因为子类没有重写的方法是默认继承自父类的，验证了一下例题也没问题)</span><br></pre></td></tr></table></figure>
+<p>对于输出4，a2.show(b))的输出结果是”B and A”。对象a2是A类型，但是指向B类型实例，为向上转型。a2可执行的方法名为类A中的方法，public String show(D obj)和public String show(A obj)；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">继承链第一步：this.show(O)显然不行，因为对象b是B类型，可执行方法中没有符合要求的。</span><br><span class="line">继承链第二步：super.show(O)，显然没有符合要求的。</span><br><span class="line">继承链第三步：this.show((super)O)，即shou((A) b)，执行类B中的方法show(A obj)，输出&quot;B and A&quot;</span><br></pre></td></tr></table></figure>
+<p>对于输出5，分析同输出4，略。<br>对于输出6，a2.show(d))的输出结果为”A and D”，也很好理解。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">继承链第一步：this.show(O)显然可以，因为类B继承了类A的public String show(D obj)方法，</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31655965/article/details/54746235">参考博文</a></p>
 
       </section>
 
@@ -144,28 +164,14 @@
       
         <nav class="article-nav">
           
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/2021/11/16/%E9%87%8D%E8%BD%BD%E4%B8%8E%E9%87%8D%E5%86%99/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">重载与重写</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
     <div class="card-text">
       
-        <a href="/2021/11/14/JPA/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">SpringBoot JPA使用</h2>
+        <a href="/2021/11/15/SpringBoot-%E6%B3%A8%E8%A7%A3/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">SpringBoot-注解</h2>
         </a>
       
       <div class="card-text--row">Older</div>
