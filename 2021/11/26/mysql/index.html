@@ -22,7 +22,7 @@
 
   
 
-  <title>thymeleaf | upbear</title>
+  <title>mysql | upbear</title>
 
   
 
@@ -96,20 +96,18 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">thymeleaf</h1>
+          <h1 class="title-wrap">mysql</h1>
           <h2 class="title-sub-wrap">
             <strong>upbear</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2021-10-30T07:17:24.000Z" itemprop="datePublished">2021-10-30</time>
+            <time  class="article-date" datetime="2021-11-26T01:53:52.000Z" itemprop="datePublished">2021-11-26</time>
           </h2>
           <ul class="wrap-list dark">
   
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/bootstrap/">🏷️ bootstrap</a></li>
-  
-    <li><a href="/tags/thymeleaf/">🏷️ thymeleaf</a></li>
+    <li><a href="/tags/mysql/">🏷️ mysql</a></li>
   
 </ul>
         </div>
@@ -133,41 +131,25 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h3 id="动态包含页面"><a href="#动态包含页面" class="headerlink" title="动态包含页面"></a>动态包含页面</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="string">&quot;#head&quot;</span>).load(<span class="string">&quot;public/head.html&quot;</span>);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="IDEA创建SpringBoot项目"><a href="#IDEA创建SpringBoot项目" class="headerlink" title="IDEA创建SpringBoot项目"></a>IDEA创建SpringBoot项目</h3><h4 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h4><p>重定向的默认访问路径是Resource/templates,想要访问Resource/static下的静态资源返回字符串要明确添加redirect，例如 return “redirect:html/hello.html”</p>
-<h3 id="bootstrap-amp-thymeleaf"><a href="#bootstrap-amp-thymeleaf" class="headerlink" title="bootstrap&amp;thymeleaf"></a>bootstrap&amp;thymeleaf</h3><p>二者不兼容：bootstrap静态页面经由thymeleaf动态打开后静态页面样式消失</p>
-<h3 id="动态创建列表"><a href="#动态创建列表" class="headerlink" title="动态创建列表"></a>动态创建列表</h3><p>代码示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;thead&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;th&gt;管理者名称&lt;/th&gt;</span><br><span class="line">        &lt;th&gt;手机&lt;/th&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;/thead&gt;</span><br><span class="line">    &lt;tbody&gt;</span><br><span class="line">    &lt;tr th:each=&quot;manager : $&#123;manager_list&#125;&quot;&gt;</span><br><span class="line">        &lt;td th:text=&quot;$&#123;manager.getName()&#125;&quot;&gt;&lt;/td&gt;</span><br><span class="line">        &lt;td th:text=&quot;$&#123;manager.phone&#125;&quot;&gt;&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;/tbody&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
-<p>一、向request中放入一个名manager_list的List类型对象。向Request、Model、ModelAndView中放入数据，都是一样的效果，因为三者最终都将数据放入了同一个地方（雷神SpringBoot2中有讲）<br>二、使用Thymeleaf取数据，显示在列表中。<br>    ${manager_list}:取出request中key为manager_list的对象<br>    ${manager.getName()}和${manager.phone}两种方法都可以获取对象manager的属性</p>
-
+        <h3 id="mysql和实体类"><a href="#mysql和实体类" class="headerlink" title="mysql和实体类"></a>mysql和实体类</h3><h4 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h4><p>mysql中没有布尔类型的数据，在实体类中的属性尽量使用布尔变量的封装类型Boolean</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Entity</span><br><span class="line">@Table(name = &quot;a&quot;)</span><br><span class="line">public class A &#123;</span><br><span class="line">    @Id</span><br><span class="line">    @GeneratedValue(strategy = GenerationType.IDENTITY)</span><br><span class="line">    @Column</span><br><span class="line">    int id;</span><br><span class="line"></span><br><span class="line">    @Column</span><br><span class="line">    Boolean flag;</span><br><span class="line">    </span><br><span class="line">    //set、get方法省略</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>表结构中flag字段的类型为：<img src="/2021/11/26/mysql/01.png" class=""></p>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p>mysql中，字符串为空和为null，两者并不相等。字符串为空对应 “” 。<br>要想查询数据表中字符串为空的记录，要传入参数 “” ,而不是 null</p>
+<img src="/2021/11/26/mysql/02.png" class="">
       </section>
 
       
       
         <nav class="article-nav">
           
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/2021/10/31/html/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">html</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
     <div class="card-text">
       
-        <a href="/2021/10/30/aplayer/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">aplayer</h2>
+        <a href="/2021/11/17/Java%E5%9F%BA%E7%A1%80/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Java基础</h2>
         </a>
       
       <div class="card-text--row">Older</div>
