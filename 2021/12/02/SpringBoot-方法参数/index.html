@@ -22,7 +22,7 @@
 
   
 
-  <title>html | upbear</title>
+  <title>SpringBoot-方法参数 | upbear</title>
 
   
 
@@ -96,18 +96,18 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">html</h1>
+          <h1 class="title-wrap">SpringBoot-方法参数</h1>
           <h2 class="title-sub-wrap">
             <strong>upbear</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2021-10-31T07:26:38.000Z" itemprop="datePublished">2021-10-31</time>
+            <time  class="article-date" datetime="2021-12-02T15:30:00.000Z" itemprop="datePublished">2021-12-02</time>
           </h2>
           <ul class="wrap-list dark">
   
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/html/">🏷️ html</a></li>
+    <li><a href="/tags/SpringBoot/">🏷️ SpringBoot</a></li>
   
 </ul>
         </div>
@@ -131,51 +131,21 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h4 id="textarea"><a href="#textarea" class="headerlink" title="textarea"></a>textarea</h4><p>textarea标签：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cols:字符列数</span><br><span class="line">rows:字符行数</span><br><span class="line">readonly:值true/false 是否设为只读</span><br></pre></td></tr></table></figure>
-<p>去除首行缩进：将首尾标签放在同一行</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;textarea&gt;hello&lt;/textarea&gt;</span><br></pre></td></tr></table></figure>
-<p>去除下拉斜线：添加属性 resize: none</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;textarea style=&quot;resize: none;&quot;&gt;hello&lt;/textarea&gt;</span><br></pre></td></tr></table></figure>
-<p>去除滚动条：添加属性 overflow: hidden</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;textarea style=&quot;overflow: hidden;&quot;&gt;hello&lt;/textarea&gt;</span><br></pre></td></tr></table></figure>
-<p>去除边框：添加属性border: none</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;textarea style=&quot;border: none;&quot;&gt;hello&lt;/textarea&gt;</span><br></pre></td></tr></table></figure>
-<p>去除点击文本时的边框：添加属性 outline: none</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;textarea style=&quot;outline: none;&quot;&gt;hello&lt;/textarea</span><br></pre></td></tr></table></figure>
-<p>显示高度自适应：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;textarea  autoHeight=&quot;true&quot; readonly=&quot;readonly&quot; style=&quot;resize: 		none; border: none; overflow: hidden; outline: 	</span><br><span class="line">none;&quot;&gt;qwerrtyuiopasdfghjklzxcnm1234567890qwertyuiopasdfghjklzxcvbnm</span><br><span class="line">&lt;/textarea&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        $.fn.autoHeight = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;    </span><br><span class="line">            <span class="function"><span class="keyword">function</span> <span class="title">autoHeight</span>(<span class="params">elem</span>)</span>&#123;</span><br><span class="line">                elem.style.height = <span class="string">&#x27;auto&#x27;</span>;</span><br><span class="line">                elem.scrollTop = <span class="number">0</span>; <span class="comment">//防抖动</span></span><br><span class="line">                elem.style.height = elem.scrollHeight + <span class="string">&#x27;px&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">this</span>.each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                autoHeight(<span class="built_in">this</span>);</span><br><span class="line">                $(<span class="built_in">this</span>).on(<span class="string">&#x27;keyup&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                    autoHeight(<span class="built_in">this</span>);</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;);     </span><br><span class="line">&#125;                </span><br><span class="line">   $(<span class="string">&#x27;textarea[autoHeight]&#x27;</span>).autoHeight();    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>textarea自适应小问题：实际textarea的宽度比文字行数多了一行</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--单个媒体对象 start--&gt;</span><br><span class="line">&lt;div class=&quot;media&quot;&gt;</span><br><span class="line">&lt;div class=&quot;media-left&quot;&gt;</span><br><span class="line">&lt;a href=&quot;#&quot;&gt;</span><br><span class="line">&lt;img class=&quot;media-object&quot; src=&quot;../images/72534562.jpg&quot; alt=&quot;头像&quot; width=&quot;64px&quot; height=&quot;64px&quot;&gt;</span><br><span class="line">&lt;h5 style=&quot;margin: 0px;text-align: center;&quot;&gt;用户名&lt;/h5&gt;</span><br><span class="line">&lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;media-body&quot;&gt;</span><br><span class="line">&lt;h4 class=&quot;media-heading&quot;&gt;Media heading&lt;/h4&gt;</span><br><span class="line">&lt;textarea cols=&quot;50&quot; rows=&quot;3&quot; style=&quot;resize: none; border: none; overflow: hidden; outline: none;&quot; readonly=&quot;true&quot;&gt;Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.&lt;/textarea&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!--单个媒体对象 end--&gt;</span><br></pre></td></tr></table></figure>
+        <h3 id="方法参数封装"><a href="#方法参数封装" class="headerlink" title="方法参数封装"></a>方法参数封装</h3>
       </section>
 
       
       
         <nav class="article-nav">
           
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/2021/11/14/JPA/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">SpringBoot JPA使用</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
     <div class="card-text">
       
-        <a href="/2021/10/30/thymeleaf/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">thymeleaf</h2>
+        <a href="/2021/11/26/mysql/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">mysql</h2>
         </a>
       
       <div class="card-text--row">Older</div>
