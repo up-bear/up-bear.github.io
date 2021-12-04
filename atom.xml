@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>upbear</title>
+  
+  
+  <link href="https://up-bear.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://up-bear.github.io/"/>
+  <updated>2021-12-02T14:33:33.921Z</updated>
+  <id>https://up-bear.github.io/</id>
+  
+  <author>
+    <name>upbear</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringBoot-方法参数</title>
+    <link href="https://up-bear.github.io/2021/12/02/springboot-fang-fa-can-shu/"/>
+    <id>https://up-bear.github.io/2021/12/02/springboot-fang-fa-can-shu/</id>
+    <published>2021-12-02T15:30:00.000Z</published>
+    <updated>2021-12-02T14:33:33.921Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="SpringBoot" scheme="https://up-bear.github.io/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql</title>
+    <link href="https://up-bear.github.io/2021/11/26/mysql/"/>
+    <id>https://up-bear.github.io/2021/11/26/mysql/</id>
+    <published>2021-11-26T01:53:52.000Z</published>
+    <updated>2021-11-26T02:19:32.664Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="mysql" scheme="https://up-bear.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java基础</title>
+    <link href="https://up-bear.github.io/2021/11/17/java-ji-chu/"/>
+    <id>https://up-bear.github.io/2021/11/17/java-ji-chu/</id>
+    <published>2021-11-17T12:22:06.000Z</published>
+    <updated>2021-12-02T15:22:17.786Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="java" scheme="https://up-bear.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>注解与反射</title>
+    <link href="https://up-bear.github.io/2021/11/16/zhu-jie-yu-fan-she/"/>
+    <id>https://up-bear.github.io/2021/11/16/zhu-jie-yu-fan-she/</id>
+    <published>2021-11-16T13:45:22.000Z</published>
+    <updated>2021-11-17T13:38:29.568Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="java" scheme="https://up-bear.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>重载与重写</title>
+    <link href="https://up-bear.github.io/2021/11/16/chong-zai-yu-chong-xie/"/>
+    <id>https://up-bear.github.io/2021/11/16/chong-zai-yu-chong-xie/</id>
+    <published>2021-11-16T11:56:40.000Z</published>
+    <updated>2021-11-17T13:17:17.756Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="java" scheme="https://up-bear.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot-注解</title>
+    <link href="https://up-bear.github.io/2021/11/15/springboot-zhu-jie/"/>
+    <id>https://up-bear.github.io/2021/11/15/springboot-zhu-jie/</id>
+    <published>2021-11-15T12:44:24.000Z</published>
+    <updated>2021-11-25T05:29:24.845Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="SpringBoot" scheme="https://up-bear.github.io/tags/SpringBoot/"/>
+    
+    <category term="注解" scheme="https://up-bear.github.io/tags/%E6%B3%A8%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot JPA使用</title>
+    <link href="https://up-bear.github.io/2021/11/14/jpa/"/>
+    <id>https://up-bear.github.io/2021/11/14/jpa/</id>
+    <published>2021-11-14T08:39:49.000Z</published>
+    <updated>2021-11-25T02:00:22.684Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="JPA" scheme="https://up-bear.github.io/tags/JPA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>html</title>
+    <link href="https://up-bear.github.io/2021/10/31/html/"/>
+    <id>https://up-bear.github.io/2021/10/31/html/</id>
+    <published>2021-10-31T07:26:38.000Z</published>
+    <updated>2021-11-15T08:16:09.636Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="html" scheme="https://up-bear.github.io/tags/html/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>thymeleaf</title>
+    <link href="https://up-bear.github.io/2021/10/30/thymeleaf/"/>
+    <id>https://up-bear.github.io/2021/10/30/thymeleaf/</id>
+    <published>2021-10-30T07:17:24.000Z</published>
+    <updated>2021-11-26T06:15:07.460Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="bootstrap" scheme="https://up-bear.github.io/tags/bootstrap/"/>
+    
+    <category term="thymeleaf" scheme="https://up-bear.github.io/tags/thymeleaf/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>aplayer</title>
+    <link href="https://up-bear.github.io/2021/10/30/aplayer/"/>
+    <id>https://up-bear.github.io/2021/10/30/aplayer/</id>
+    <published>2021-10-30T01:01:46.000Z</published>
+    <updated>2021-10-30T02:36:38.720Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="aplayer" scheme="https://up-bear.github.io/tags/aplayer/"/>
+    
+    <category term="博客" scheme="https://up-bear.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>my-first-blog</title>
+    <link href="https://up-bear.github.io/2021/10/17/my-first-blog/"/>
+    <id>https://up-bear.github.io/2021/10/17/my-first-blog/</id>
+    <published>2021-10-17T08:30:51.000Z</published>
+    <updated>2021-12-04T02:48:03.269Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="搭建博客" scheme="https://up-bear.github.io/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://up-bear.github.io/2021/10/17/hello-world/"/>
+    <id>https://up-bear.github.io/2021/10/17/hello-world/</id>
+    <published>2021-10-17T05:09:56.822Z</published>
+    <updated>2021-10-30T01:16:35.930Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
