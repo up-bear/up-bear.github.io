@@ -21,7 +21,7 @@
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
     KEEP.hexo_config = {"hostname":"up-bear.github.io","root":"/","language":"zh-CN","path":"search.json"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/favicon.ico","favicon":"/images/favicon.ico","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/favicon.ico","favicon":"/images/favicon.ico","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="upbear" type="application/atom+xml">
@@ -32,6 +32,11 @@
 <div class="progress-bar-container">
     
 
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
     
 </div>
 
@@ -179,6 +184,84 @@
     <div class="page-template-container">
         
         
+            <div class="friends-link-container">
+    <ul class="friends-link-list">
+        
+            <li class="friends-link-item">
+                <a target="_blank" rel="noopener" href="https://xpoet.cn/">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <img class="radius"
+                                     src="https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/common-use/avatar.jpg"
+                                     onerror="this.style.display='none'"
+                                >
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">XPoet</div>
+                            <div class="description ellipsis">黄色的森林分出两条路，我选择了人迹更少的那一条，从此决定我一生的道路。</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li class="friends-link-item">
+                <a target="_blank" rel="noopener" href="https://naiv.xyz/">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <img class="radius"
+                                     src="http://naiv.xyz/assets/blogImg/logo.jpg"
+                                     onerror="this.style.display='none'"
+                                >
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">recovxy</div>
+                            <div class="description ellipsis">在人生的中途，我发现我已经迷失了正路，走进了一座幽暗森林······</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li class="friends-link-item">
+                <a target="_blank" rel="noopener" href="http://www.ityouknow.com/">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <i class="fas fa-user-friends"></i>
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">纯洁的微笑</div>
+                            <div class="description ellipsis"></div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+            <li class="friends-link-item">
+                <a target="_blank" rel="noopener" href="https://yupi.icu/">
+                    <div class="content">
+                        <div class="avatar radius">
+                            
+                                <i class="fas fa-user-friends"></i>
+                            
+                        </div>
+                        <div class="info">
+                            <div class="name ellipsis">程序员鱼皮</div>
+                            <div class="description ellipsis">专注编程知识分享</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        
+    </ul>
+    <div class="clear"></div>
+</div>
+
+        
         <div class="page-template-content markdown-body">
             
                 
@@ -208,7 +291,7 @@
             2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">upbear</a>
         </div>
         
-            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
             <div class="website-count info-item">
                 
                     <span id="busuanzi_container_site_uv">
@@ -341,9 +424,41 @@
 
 
 
-<div class="post-scripts">
+<div class="post-scripts pjax">
     
 </div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 
