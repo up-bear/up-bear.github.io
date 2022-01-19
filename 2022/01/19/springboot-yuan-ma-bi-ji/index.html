@@ -9,7 +9,7 @@
     
     <title>
         
-            aplayer |
+            SpringBoot源码笔记 |
         
         upbear&#39;s blog
     </title>
@@ -184,7 +184,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">aplayer</span>
+            <span class="title-hover-animation">SpringBoot源码笔记</span>
         </div>
 
         
@@ -202,31 +202,9 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-10-30 09:01:46
+        <i class="fas fa-edit"></i>&nbsp;2022-01-19 16:16:08
     </span>
     
-        <span class="article-categories article-meta-item">
-            <i class="fas fa-folder"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/categories/blog/">blog</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fas fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/aplayer/">aplayer</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
     
 
     
@@ -245,16 +223,17 @@
         
 
         <div class="article-content markdown-body">
-            <p>使用aplayer播放器</p>
-<h3 id="安装aplayer"><a href="#安装aplayer" class="headerlink" title="安装aplayer"></a>安装aplayer</h3><p>使用命令fs<br>    npm install aplayer –save</p>
-<h3 id="文章添加音乐"><a href="#文章添加音乐" class="headerlink" title="文章添加音乐"></a>文章添加音乐</h3><p>在文章头部Front-matter中添加语句，否则不成功<br>    aplayer: true<br>在文章正文中添加以下语句。（具体字段属性请参考官方文档）</p>
-<h3 id="方法2：使用hexo-tag-aplayer插件实现"><a href="#方法2：使用hexo-tag-aplayer插件实现" class="headerlink" title="方法2：使用hexo-tag-aplayer插件实现"></a>方法2：使用hexo-tag-aplayer插件实现</h3><p>安装插件<br>    npm install –save hexo-tag-aplayer<br>在hexo的配置文件 _config.yml 中添加以下语句。<br>    aplayer:<br>        true<br>在文章正文添加以下语句。（具体字段属性请参考官方文档）<br>使用hexo-tag-aplayer有个小问题，音乐播放列表列表不能折叠。添加”listfolded:true”后音乐页面直接不能显示了。</p>
+            <h3 id="静态资源"><a href="#静态资源" class="headerlink" title="静态资源"></a>静态资源</h3><h4 id="默认路径"><a href="#默认路径" class="headerlink" title="默认路径"></a>默认路径</h4><p>项目资源文件夹resources下：/META-INF/resources/、/resources/、/static/、/public/ 共四个路径。即使是使用了thymeleaf模板的情况下，放在以上路径下的静态资源仍然可以被访问，而且在这些路径下的html页面中使用thymeleaf语法同样有效。（thymeleaf似乎值对拦截再templates路径下的资源访问进行拦截设置）<br>源码探究：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.springframework.boot.autoconfigure.web;</span><br><span class="line"><span class="meta">@ConfigurationProperties(&quot;spring.web&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebProperties</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Resources</span> </span>&#123;</span><br><span class="line">		<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String[] CLASSPATH_RESOURCE_LOCATIONS = &#123; <span class="string">&quot;classpath:/META-INF/resources/&quot;</span>,<span class="string">&quot;classpath:/resources/&quot;</span>, <span class="string">&quot;classpath:/static/&quot;</span>, <span class="string">&quot;classpath:/public/&quot;</span> &#125;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="自定义资源路径"><a href="#自定义资源路径" class="headerlink" title="自定义资源路径"></a>自定义资源路径</h5><p>注解@ConfigurationProperties(“spring.web”)，WebProperties类下的属性和配置文件进行了绑定，在配置文件application.properties中即可自定义静态资源访问路径。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">##由于CLASSPATH_RESOURCE_LOCATIONS被final修饰，所以不能修改</span><br><span class="line">##类属性和配置文件的对应规则：spring.web为注解设置前缀，resource对应内部类Resources的类名，static-locations对应类属性staticLocations</span><br><span class="line">spring.web.resources.static-locations = 自定义资源路径</span><br></pre></td></tr></table></figure>
+<p>源码探究：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.springframework.boot.autoconfigure.web;</span><br><span class="line"><span class="meta">@ConfigurationProperties(&quot;spring.web&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebProperties</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Resources</span> </span>&#123;</span><br><span class="line">		<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String[] CLASSPATH_RESOURCE_LOCATIONS = &#123; <span class="string">&quot;classpath:/META-INF/resources/&quot;</span>,<span class="string">&quot;classpath:/resources/&quot;</span>, <span class="string">&quot;classpath:/static/&quot;</span>, <span class="string">&quot;classpath:/public/&quot;</span> &#125;;</span><br><span class="line">		<span class="keyword">private</span> String[] staticLocations = CLASSPATH_RESOURCE_LOCATIONS;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-			<script>
-				console.error("Error: [hexo-tag-aplayer] Specified asset file not found (caffeine.mp3)");
-			</script>
-
-<p>wocao</p>
+<h4 id="资源访问前缀"><a href="#资源访问前缀" class="headerlink" title="资源访问前缀"></a>资源访问前缀</h4><p>默认访问前缀：/<br>源码探究：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties(prefix = &quot;spring.mvc&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebMvcProperties</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Servlet</span> </span>&#123;</span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * Path of the dispatcher servlet. Setting a custom value for this property is not</span></span><br><span class="line"><span class="comment">		 * compatible with the PathPatternParser matching strategy.</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		<span class="keyword">private</span> String path = <span class="string">&quot;/&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>自定义访问前缀：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.web.servlet.path = 自定义前缀（注意要“/”结尾）</span><br></pre></td></tr></table></figure>
 
         </div>
 
@@ -262,11 +241,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：aplayer</li>
+        <li>本文标题：SpringBoot源码笔记</li>
         <li>本文作者：upbear</li>
-        <li>创建时间：2021-10-30 09:01:46</li>
+        <li>创建时间：2022-01-19 16:16:08</li>
         <li>
-            本文链接：https://up-bear.github.io/2021/10/30/aplayer/
+            本文链接：https://up-bear.github.io/2022/01/19/springboot-yuan-ma-bi-ji/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -280,29 +259,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2021/10/30/thymeleaf/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">thymeleaf</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/10/17/my-first-blog/"
+                           href="/2021/12/04/springboot-jpa/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">my-first-blog</span>
+                                <span class="post-nav-title-item">SpringBoot-JPA</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -519,7 +483,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85aplayer"><span class="nav-number">1.</span> <span class="nav-text">安装aplayer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90"><span class="nav-number">2.</span> <span class="nav-text">文章添加音乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%952%EF%BC%9A%E4%BD%BF%E7%94%A8hexo-tag-aplayer%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">方法2：使用hexo-tag-aplayer插件实现</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90"><span class="nav-number">1.</span> <span class="nav-text">静态资源</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E8%B7%AF%E5%BE%84"><span class="nav-number">1.1.</span> <span class="nav-text">默认路径</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%B5%84%E6%BA%90%E8%B7%AF%E5%BE%84"><span class="nav-number">1.1.1.</span> <span class="nav-text">自定义资源路径</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE%E5%89%8D%E7%BC%80"><span class="nav-number">1.2.</span> <span class="nav-text">资源访问前缀</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>

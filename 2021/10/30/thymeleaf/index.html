@@ -266,7 +266,15 @@
 <li>路径拼写错误。<br> 使用了Thymeleaf模板，默认使用了@Controller类的字符串返回类型会被当作转发请求，且返回的字符串不需要带后缀”.html’，因为Thymeleaf会默认去寻找html文件。如果想使用重定向，需要使用：return “redirect:请求路径”。</li>
 <li>thymeleaf获取request、session中的参数错误。<br> 使用thymeleaf表达式 ${…} 获取数据时，一定要确保在到达该页面前一定已经向对应的request、session中放入了要取的数据，否则也会造成错误。<br> 使用 ${对象.属性} 或 ${对象.方法} 获取数据时，一定确保属性名和方法名和Java类中的保持一致，即使少了一个字母也会报错</li>
 </ol>
+<h3 id="background-image-url-拼接"><a href="#background-image-url-拼接" class="headerlink" title="background-image: url() 拼接"></a>background-image: url() 拼接</h3><p>设置背景</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:style</span>=<span class="string">&quot;&#x27;background:url(&#x27; + @&#123;/&lt;path-to-image&gt;&#125; + &#x27;);&#x27;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>根据属性值改变背景</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;media-object resource-card-image&quot;</span>  <span class="attr">th:style</span>=<span class="string">&quot;&#x27;background:url(&#x27; + @&#123;($&#123;collect.webLogo&#125;==&#x27;&#x27; ? &#x27;img/favicon.png&#x27; : $&#123;collect.webLogo&#125;)&#125; + &#x27;)&#x27;&quot;</span> &gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="行内写法（表达式内联）"><a href="#行内写法（表达式内联）" class="headerlink" title="行内写法（表达式内联）"></a>行内写法（表达式内联）</h3><p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;Hello, [[$&#123;session.user.name&#125;]]!&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<p>禁用内联：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p th:inline=&quot;none&quot;&gt;A double array looks like this: [[1, 2, 3], [4, 5]]!&lt;/p&gt;</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -423,7 +431,7 @@
               <span>2021</span>
               -
             
-            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">upbear</a>
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">upbear</a>
         </div>
         
             <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -530,7 +538,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%8C%85%E5%90%AB%E9%A1%B5%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">动态包含页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IDEA%E5%88%9B%E5%BB%BASpringBoot%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.</span> <span class="nav-text">IDEA创建SpringBoot项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">2.1.</span> <span class="nav-text">重定向</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bootstrap-amp-thymeleaf"><span class="nav-number">3.</span> <span class="nav-text">bootstrap&amp;thymeleaf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BA%E5%88%97%E8%A1%A8"><span class="nav-number">4.</span> <span class="nav-text">动态创建列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thymeleaf%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF"><span class="nav-number">5.</span> <span class="nav-text">Thymeleaf常见错误</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%8C%85%E5%90%AB%E9%A1%B5%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">动态包含页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IDEA%E5%88%9B%E5%BB%BASpringBoot%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.</span> <span class="nav-text">IDEA创建SpringBoot项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">2.1.</span> <span class="nav-text">重定向</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bootstrap-amp-thymeleaf"><span class="nav-number">3.</span> <span class="nav-text">bootstrap&amp;thymeleaf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BA%E5%88%97%E8%A1%A8"><span class="nav-number">4.</span> <span class="nav-text">动态创建列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thymeleaf%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF"><span class="nav-number">5.</span> <span class="nav-text">Thymeleaf常见错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#background-image-url-%E6%8B%BC%E6%8E%A5"><span class="nav-number">6.</span> <span class="nav-text">background-image: url() 拼接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E5%86%85%E5%86%99%E6%B3%95%EF%BC%88%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%86%85%E8%81%94%EF%BC%89"><span class="nav-number">7.</span> <span class="nav-text">行内写法（表达式内联）</span></a></li></ol>
     </div>
 </div>
         </aside>
