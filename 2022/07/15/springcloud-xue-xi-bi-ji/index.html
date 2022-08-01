@@ -251,9 +251,14 @@
 <li>项目父工程引入依赖<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-alibaba-dependencies&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.2.5.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">    &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
 <li>微服务引入Nacos依赖<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-discovery&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
 <li>微服务配置Nacos<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">	cloud:</span><br><span class="line">		nacos:</span><br><span class="line">			server-addr: localhost:8848</span><br></pre></td></tr></table></figure>
-<h2 id="Nacos集群"><a href="#Nacos集群" class="headerlink" title="Nacos集群"></a>Nacos集群</h2>Nacos默认优先访问同一集群下的微服务，多个微服务实例间是随机访问。当本地微服务不可用时会发生跨集群访问。<br>集群配置<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">	cloud:</span><br><span class="line">		nacos:</span><br><span class="line">			server-addr: localhost:8848</span><br><span class="line">			discovery:</span><br><span class="line">				cluster-name: HZ #集群名称</span><br></pre></td></tr></table></figure>
-设置负载均衡方式<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">userservice:</span><br><span class="line">	ribbon:</span><br><span class="line">		NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule</span><br></pre></td></tr></table></figure>
-<h2 id="Nacos环境隔离"><a href="#Nacos环境隔离" class="headerlink" title="Nacos环境隔离"></a>Nacos环境隔离</h2>在Nacos控制台进行环境管理，不同环境下的微服务之间是相互隔离的，无法访问。<br>配置临时实例为true，开启注册中心主动询问微服务实例状态，频率较高，对服务器的开销比较大。临时实例为false，微服务实例主动向注册中心发送心跳信息，频率较低，开销较小。<br>与EureKa不同，如果Nacos注册中心发现有一个微服务实例不可用，则会主动向消费者推送信息，更新微服务实例列表。<h2 id="Nacos配置管理"><a href="#Nacos配置管理" class="headerlink" title="Nacos配置管理"></a>Nacos配置管理</h2><h3 id="远程环境配置"><a href="#远程环境配置" class="headerlink" title="远程环境配置"></a>远程环境配置</h3></li>
+PS：微服务需要有<code>资源</code>启动后在控制台才能看到注册的微服务，<code>资源</code>是可以被访问的方法等，踩大坑！</li>
+</ol>
+<h2 id="Nacos集群"><a href="#Nacos集群" class="headerlink" title="Nacos集群"></a>Nacos集群</h2><p>Nacos默认优先访问同一集群下的微服务，多个微服务实例间是随机访问。当本地微服务不可用时会发生跨集群访问。<br>集群配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">	cloud:</span><br><span class="line">		nacos:</span><br><span class="line">			server-addr: localhost:8848</span><br><span class="line">			discovery:</span><br><span class="line">				cluster-name: HZ #集群名称</span><br></pre></td></tr></table></figure>
+<p>设置负载均衡方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">userservice:</span><br><span class="line">	ribbon:</span><br><span class="line">		NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule</span><br></pre></td></tr></table></figure>
+<h2 id="Nacos环境隔离"><a href="#Nacos环境隔离" class="headerlink" title="Nacos环境隔离"></a>Nacos环境隔离</h2><p>在Nacos控制台进行环境管理，不同环境下的微服务之间是相互隔离的，无法访问。<br>配置临时实例为true，开启注册中心主动询问微服务实例状态，频率较高，对服务器的开销比较大。临时实例为false，微服务实例主动向注册中心发送心跳信息，频率较低，开销较小。<br>与EureKa不同，如果Nacos注册中心发现有一个微服务实例不可用，则会主动向消费者推送信息，更新微服务实例列表。</p>
+<h2 id="Nacos配置管理"><a href="#Nacos配置管理" class="headerlink" title="Nacos配置管理"></a>Nacos配置管理</h2><h3 id="远程环境配置"><a href="#远程环境配置" class="headerlink" title="远程环境配置"></a>远程环境配置</h3><ol>
 <li>在Nacos控制台创建配置文件 eg：userservice-dev.yml</li>
 <li>在微服务实例中添加bootstrap.yml文件，将需要从 application.yml 剥离的配置信息改到 bootstrap.yml ，例如Nacos地址，微服务名称等（springboot 会优先加载 bootstrap.yml，然后再加载 application.yml）</li>
 <li>配置热更新<br>方式一：使用 @Value 和 @RefreshScope 刷新<br>方式二：使用 @ConfigurationProperties 实现<h3 id="远程共享配置"><a href="#远程共享配置" class="headerlink" title="远程共享配置"></a>远程共享配置</h3>多个实例间共享设置，eg：userservice.yml<br>配置生效优先级：远程环境配置 &gt; 远程共享配置 &gt; 本地配置<img src="/2022/07/15/springcloud-xue-xi-bi-ji/001.jpg" class="">
@@ -2234,6 +2239,21 @@ PS：这里返回的是假数据</li>
 
         
             <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/08/01/maven-yi-lai-cai-keng/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">maven依赖踩坑</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
                 
                 
                     <div class="article-next">
