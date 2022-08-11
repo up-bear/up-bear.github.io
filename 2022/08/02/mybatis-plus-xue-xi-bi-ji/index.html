@@ -9,7 +9,7 @@
     
     <title>
         
-            maven依赖踩坑 |
+            Mybatis-Plus学习笔记 |
         
         upbear&#39;s blog
     </title>
@@ -184,7 +184,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">maven依赖踩坑</span>
+            <span class="title-hover-animation">Mybatis-Plus学习笔记</span>
         </div>
 
         
@@ -202,7 +202,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2022-08-01 21:10:20
+        <i class="fas fa-edit"></i>&nbsp;2022-08-02 20:24:31
     </span>
     
     
@@ -223,16 +223,17 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="1-pom爆红"><a href="#1-pom爆红" class="headerlink" title="1. pom爆红"></a>1. pom爆红</h1><h2 id="1-1-maven坐标正确"><a href="#1-1-maven坐标正确" class="headerlink" title="1.1 maven坐标正确"></a>1.1 maven坐标正确</h2><p>这种情况可能是maven或IDEA自身的问题，这里给出一种解决方案。</p>
-<ol>
-<li>首先到maven中央仓库手动下载所需要的jar包</li>
-<li>将下载的jar包导入到maven本地仓库<br>在jar包所在目录下打开cmd控制台，执行：<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file -Dfile=jar包名称（带后缀） -DgroupId=jar包groupId -DartifactId=jar包artifactId -Dversion=jar包版本号 -Dpackaging=jar</span><br></pre></td></tr></table></figure></li>
-<li>修改IDEA maven设置<img src="/2022/08/01/maven-yi-lai-cai-keng/001.jpg" class="">
-勾选圈出的选项，确定。之后重启IDEA，pom文件不再爆红。</li>
-</ol>
-<h1 id="参考帖子"><a href="#参考帖子" class="headerlink" title="参考帖子"></a>参考帖子</h1><ol>
-<li><a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/think-world/p/12229763.html" >https://www.cnblogs.com/think-world/p/12229763.html<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43242707/article/details/115277308" >https://blog.csdn.net/qq_43242707/article/details/115277308<i class="fas fa-external-link-alt"></i></a></li>
+            <h1 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h1><ol>
+<li><p>引入依赖<br>Mybatis-Plus、数据库依赖（eg：Mysql）、Lombok（生成set、get、构造器等）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>PS：3.5.2 版本中@TableName、@MapperScan注解似乎没有了</p>
+</li>
+<li><p>构造实体类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span>   <span class="comment">//get、set方法</span></span><br><span class="line"><span class="meta">@TableName(&quot;tb_user&quot;)</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span>  <span class="comment">//无参构造器</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span> <span class="comment">//有参构造器</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="meta">@TableId(&quot;ID&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    <span class="meta">@TableField(&quot;USER_NAME&quot;)</span> <span class="keyword">private</span> String userName; <span class="comment">//驼峰命名,则无需注解</span></span><br><span class="line">    <span class="meta">@TableField(&quot;PASSWORD&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>编写Mapper，集成BaseMapper接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> <span class="keyword">extends</span> <span class="title">BaseMapper</span>&lt;<span class="title">User</span>&gt; </span>&#123; &#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>扫描mapper所在包<br>在启动类或测试类上添加<code>@MapperScan(&quot;包名&quot;)</code></p>
+</li>
 </ol>
 
         </div>
@@ -241,11 +242,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：maven依赖踩坑</li>
+        <li>本文标题：Mybatis-Plus学习笔记</li>
         <li>本文作者：upbear</li>
-        <li>创建时间：2022-08-01 21:10:20</li>
+        <li>创建时间：2022-08-02 20:24:31</li>
         <li>
-            本文链接：https://up-bear.github.io/2022/08/01/maven-yi-lai-cai-keng/
+            本文链接：https://up-bear.github.io/2022/08/02/mybatis-plus-xue-xi-bi-ji/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -262,13 +263,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/08/02/mybatis-plus-xue-xi-bi-ji/"
+                           href="/2022/08/06/redis-xue-xi-bi-ji/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Mybatis-Plus学习笔记</span>
+                                <span class="post-nav-title-item">Redis学习笔记</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -278,10 +279,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/07/15/springcloud-xue-xi-bi-ji/"
+                           href="/2022/08/01/maven-yi-lai-cai-keng/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">SpringCloud学习笔记</span>
+                                <span class="post-nav-title-item">maven依赖踩坑</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -498,7 +499,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-pom%E7%88%86%E7%BA%A2"><span class="nav-number">1.</span> <span class="nav-text">1. pom爆红</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-maven%E5%9D%90%E6%A0%87%E6%AD%A3%E7%A1%AE"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 maven坐标正确</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E5%B8%96%E5%AD%90"><span class="nav-number">2.</span> <span class="nav-text">参考帖子</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">基本流程</span></a></li></ol>
     </div>
 </div>
         </aside>

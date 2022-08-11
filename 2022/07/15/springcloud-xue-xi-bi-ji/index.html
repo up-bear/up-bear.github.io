@@ -260,7 +260,7 @@ PS：微服务需要有<code>资源</code>启动后在控制台才能看到注�
 <h2 id="Nacos环境隔离"><a href="#Nacos环境隔离" class="headerlink" title="Nacos环境隔离"></a>Nacos环境隔离</h2><p>在Nacos控制台进行环境管理，不同环境下的微服务之间是相互隔离的，无法访问。<br>配置临时实例为true，开启注册中心主动询问微服务实例状态，频率较高，对服务器的开销比较大。临时实例为false，微服务实例主动向注册中心发送心跳信息，频率较低，开销较小。<br>与EureKa不同，如果Nacos注册中心发现有一个微服务实例不可用，则会主动向消费者推送信息，更新微服务实例列表。</p>
 <h2 id="Nacos配置管理"><a href="#Nacos配置管理" class="headerlink" title="Nacos配置管理"></a>Nacos配置管理</h2><h3 id="远程环境配置"><a href="#远程环境配置" class="headerlink" title="远程环境配置"></a>远程环境配置</h3><ol>
 <li>在Nacos控制台创建配置文件 eg：userservice-dev.yml</li>
-<li>在微服务实例中添加bootstrap.yml文件，将需要从 application.yml 剥离的配置信息改到 bootstrap.yml ，例如Nacos地址，微服务名称等（springboot 会优先加载 bootstrap.yml，然后再加载 application.yml）</li>
+<li>在微服务实例中添加bootstrap.yml文件，将需要从 application.yml 剥离的配置信息改到 bootstrap.yml ，例如Nacos地址，微服务名称等（SpringCloud负责加载 bootstrap.yml，会先于SpringBoot加载application.yml）</li>
 <li>配置热更新<br>方式一：使用 @Value 和 @RefreshScope 刷新<br>方式二：使用 @ConfigurationProperties 实现<h3 id="远程共享配置"><a href="#远程共享配置" class="headerlink" title="远程共享配置"></a>远程共享配置</h3>多个实例间共享设置，eg：userservice.yml<br>配置生效优先级：远程环境配置 &gt; 远程共享配置 &gt; 本地配置<img src="/2022/07/15/springcloud-xue-xi-bi-ji/001.jpg" class="">
 <h3 id="集群搭建"><a href="#集群搭建" class="headerlink" title="集群搭建"></a>集群搭建</h3></li>
 <li>搭建MySQL集群并初始化数据库表</li>
