@@ -139,26 +139,6 @@
   </entry>
   
   <entry>
-    <title>ideas</title>
-    <link href="https://up-bear.github.io/2022/04/15/ideas/"/>
-    <id>https://up-bear.github.io/2022/04/15/ideas/</id>
-    <published>2022-04-15T13:47:22.000Z</published>
-    <updated>2022-04-15T14:04:03.944Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h4 id="redis实现单点的登录"><a href="#redis实现单点的登录" class="headerlink" title="redis实现单点的登录"></a>redis实现单点的登录</h4><p>单点登录：我的理解单点登录是同一个账号只能在一台设备上登陆。<br>思路：redis中有种数据类型 bitmap 二进制位来进行记录，只有0、1两种状态。可以根据用户 id 来将对应的位设为1，每次登陆时检查与 id 相对应的位是否为0。退出登录时要将对应的位设置为 0。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>nginx初试</title>
     <link href="https://up-bear.github.io/2022/04/06/nginx-chu-shi/"/>
     <id>https://up-bear.github.io/2022/04/06/nginx-chu-shi/</id>
@@ -457,6 +437,30 @@
     <category term="bootstrap" scheme="https://up-bear.github.io/tags/bootstrap/"/>
     
     <category term="thymeleaf" scheme="https://up-bear.github.io/tags/thymeleaf/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>aplayer</title>
+    <link href="https://up-bear.github.io/2021/10/30/aplayer/"/>
+    <id>https://up-bear.github.io/2021/10/30/aplayer/</id>
+    <published>2021-10-30T01:01:46.000Z</published>
+    <updated>2021-12-04T13:50:47.530Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>使用aplayer播放器</p><h3 id="安装aplayer"><a href="#安装aplayer" class="headerlink" title="安装aplayer"></a>安装aplayer</h3><p>使用命令fs<br>    npm install aplayer –save</p><h3 id="文章添加音乐"><a href="#文章添加音乐" class="headerlink" title="文章添加音乐"></a>文章添加音乐</h3><p>在文章头部Front-matter中添加语句，否则不成功<br>    aplayer: true<br>在文章正文中添加以下语句。（具体字段属性请参考官方文档）</p><h3 id="方法2：使用hexo-tag-aplayer插件实现"><a href="#方法2：使用hexo-tag-aplayer插件实现" class="headerlink" title="方法2：使用hexo-tag-aplayer插件实现"></a>方法2：使用hexo-tag-aplayer插件实现</h3><p>安装插件<br>    npm install –save hexo-tag-aplayer<br>在hexo的配置文件 _config.yml 中添加以下语句。<br>    aplayer:<br>        true<br>在文章正文添加以下语句。（具体字段属性请参考官方文档）<br>使用hexo-tag-aplayer有个小问题，音乐播放列表列表不能折叠。添加”listfolded:true”后音乐页面直接不能显示了。</p><script>console.error("Error: [hexo-tag-aplayer] Specified asset file not found (caffeine.mp3)");</script><p>wocao</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="blog" scheme="https://up-bear.github.io/categories/blog/"/>
+    
+    
+    <category term="aplayer" scheme="https://up-bear.github.io/tags/aplayer/"/>
     
   </entry>
   
