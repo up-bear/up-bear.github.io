@@ -186,6 +186,34 @@
                 
 
                 <h3 class="home-article-title">
+                    <a href="/2022/01/19/springboot-yuan-ma-bi-ji/">
+                        SpringBoot源码笔记
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        静态资源默认路径项目资源文件夹resources下：/META-INF/resources/、/resources/、/static/、/public/ 共四个路径。即使是使用了thymeleaf模板的情况下，放在以上路径下的静态资源仍然可以被访问，...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Jan 19 2022 16:16:08 GMT+0800">2022-01-19</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/01/19/springboot-yuan-ma-bi-ji/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
                     <a href="/2021/12/04/springboot-jpa/">
                         SpringBoot-JPA
                     </a>
@@ -284,15 +312,21 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/11/26/mysql/">
-                        Java实体类和Mysql表结构
+                    <a href="/2021/11/26/mysql-xue-xi-bi-ji/">
+                        Mysql学习笔记
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        mysql和实体类布尔类型mysql中没有布尔类型的数据，在实体类中的属性尽量使用布尔变量的封装类型Boolean
-12345678910111213@Entity@Table(name = &quot;a&quot;)public class A ...
+                        SQL语法基本规范书写规范：
+
+SQL 可以写在一行或者多行。为了提高可读性，各子句分行写，必要时使用缩进
+每条命令以 ; 或 \g 或 \G 结束
+关键字不能被缩写也不能分行
+关于标点符号
+必须保证所有的()、单引号、双引号是成对结束的
+必须使用英...
                     
                 </div>
 
@@ -313,64 +347,9 @@
             </span>
         
         
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/%E5%AE%9E%E4%BD%93%E7%B1%BB/">实体类</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
     </div>
 
-    <a href="/2021/11/26/mysql/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2021/11/17/java-ji-chu/">
-                        Java基础
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        JDK版本：jdk11
-静态方法不能通过对象调用，只能通过类名调用。
-静态方法可被子类继承。
-类的int属性如果没有赋初值，则在创建类对象时，会被赋值为0。    JPA可能就是根据对象的id是否为0来判断表中是否存在该对象的记录，从而决定save方...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Wed Nov 17 2021 20:22:06 GMT+0800">2021-11-17</span></span>
-        
-            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/categories/java/">java</a>&nbsp;
-                        </li>
-                    
-                    
-                </ul>
-            </span>
-        
-        
-    </div>
-
-    <a href="/2021/11/17/java-ji-chu/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/11/26/mysql-xue-xi-bi-ji/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -639,22 +618,25 @@ IDEA创建SpringBoot项目重定向重定向的默...
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2021/10/30/aplayer/">
-                        aplayer
+                    <a href="/2021/10/17/my-first-blog/">
+                        my-first-blog
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        使用aplayer播放器
-安装aplayer使用命令fs    npm install aplayer –save
-文章添加音乐在文章头部Front-matter中添加语句，否则不成功    aplayer: true在文章正文中添加以下语句。（具体...
+                        Hexo + GitHub 搭建个人博客环境准备npm、git
+
+使用命令（均在git bash下执行）安装Hexo博客框架
+1npm install hexo-cli -g
+初始化项目文件夹
+1hexo init 文件夹名称（后面不跟文件名称时，需...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sat Oct 30 2021 09:01:46 GMT+0800">2021-10-30</span></span>
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Oct 17 2021 16:30:51 GMT+0800">2021-10-17</span></span>
         
             <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
                 <ul>
@@ -669,21 +651,9 @@ IDEA创建SpringBoot项目重定向重定向的默...
             </span>
         
         
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/aplayer/">aplayer</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
     </div>
 
-    <a href="/2021/10/30/aplayer/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+    <a href="/2021/10/17/my-first-blog/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -698,10 +668,6 @@ IDEA创建SpringBoot项目重定向重定向的默...
         >上一页</a>
     
 
-    
-        <a class="next btn"
-           href="/page/3/"
-        >下一页</a>
     
 </div>
 
@@ -723,7 +689,7 @@ IDEA创建SpringBoot项目重定向重定向的默...
               <span>2021</span>
               -
             
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">upbear</a>
+            2023&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">upbear</a>
         </div>
         
             <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

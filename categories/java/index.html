@@ -9,7 +9,7 @@
     
     <title>
         
-            分类: java |
+            分类: Java |
         
         upbear&#39;s blog
     </title>
@@ -183,7 +183,7 @@
                     <div class="fade-in-down-animation">
     <div class="category-container">
         <div class="category-name">
-            <i class="fas fa-folder"></i>&nbsp;java
+            <i class="fas fa-folder"></i>&nbsp;Java
         </div>
         <div class="category-post-list">
             
@@ -191,30 +191,16 @@
     
         <section class="archive-item">
             <div class="archive-item-header">
-                <span class="archive-year">2021</span>
-                <span class="archive-year-post-count">[3]</span>
+                <span class="archive-year">2022</span>
+                <span class="archive-year-post-count">[1]</span>
             </div>
             <ul class="article-list">
                 
                     <li class="article-item">
                         <a class="article-title"
-                           href="/2021/11/17/java-ji-chu/"
-                        >Java基础</a>
-                        <span class="article-date">11-17</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2021/11/16/zhu-jie-yu-fan-she/"
-                        >注解与反射</a>
-                        <span class="article-date">11-16</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2021/11/16/chong-zai-yu-chong-xie/"
-                        >重载与重写</a>
-                        <span class="article-date">11-16</span>
+                           href="/2022/03/10/java-shi-ti-lei/"
+                        >Java实体类</a>
+                        <span class="article-date">03-10</span>
                     </li>
                 
             </ul>
@@ -249,7 +235,7 @@
               <span>2021</span>
               -
             
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">upbear</a>
+            2023&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">upbear</a>
         </div>
         
             <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -411,6 +397,21 @@
 
         document.addEventListener('pjax:send', () => {
             KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
+s.pjaxProgressBarStart();
         });
 
         document.addEventListener('pjax:complete', () => {
