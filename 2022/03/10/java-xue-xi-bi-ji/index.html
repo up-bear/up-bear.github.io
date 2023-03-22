@@ -9,7 +9,7 @@
     
     <title>
         
-            重载与重写 |
+            Java学习笔记 |
         
         upbear
     </title>
@@ -184,7 +184,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">重载与重写</span>
+            <span class="title-hover-animation">Java学习笔记</span>
         </div>
 
         
@@ -202,7 +202,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-11-16 19:56:40
+        <i class="fas fa-edit"></i>&nbsp;2022-03-10 19:29:24
     </span>
     
         <span class="article-categories article-meta-item">
@@ -210,7 +210,11 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/java/">java</a>&nbsp;
+                        <a href="/categories/mysql/">mysql</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/Java/">Java</a>&nbsp;
                     </li>
                 
             </ul>
@@ -234,7 +238,18 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h3><p>描述：一个类中，同一个方法名，有用多个参数类型或数量不同的方法实现，则称之为方法重载。<br>代码示例：</p>
+            <p>实体类的属性名称不能和数据库的保留字相同，否则会导致数据表创建错误。<br>Mysql保留字有：<br>    call</p>
+<h1 id="反射与注解"><a href="#反射与注解" class="headerlink" title="反射与注解"></a>反射与注解</h1><h3 id="注解Annotation"><a href="#注解Annotation" class="headerlink" title="注解Annotation"></a>注解Annotation</h3><p>作用：注释和解释（狂神说的，很喜欢，简洁）。被人用来注释代码，并交给JVM去解释执行。</p>
+<p>定义：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Target(&#123;ElementType.TYPE&#125;)</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@interface MyAnnotation&#123;</span><br><span class="line">    public String value();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上就简单自定义了一个注解。在定义注解的时候可以使用其他注解。</p>
+<p>元注解：用来注解注解的注解。<br>四个元注解：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Target 确定注解可以使用的地方，如类、接口、方法等</span><br><span class="line">@Retention 可以理解为注解的&quot;生命周期&quot;</span><br><span class="line">@Documented 此注解会被javadoc工具提取成文档</span><br><span class="line">@Inherited 允许子类继承父类中的注解</span><br></pre></td></tr></table></figure>
+
+<h3 id="反射Reflection"><a href="#反射Reflection" class="headerlink" title="反射Reflection"></a>反射Reflection</h3><p>个人理解：通过Class类去操纵对象的过程就称为反射。<br>代码示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="重载与重写"><a href="#重载与重写" class="headerlink" title="重载与重写"></a>重载与重写</h1><h3 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h3><p>描述：一个类中，同一个方法名，有用多个参数类型或数量不同的方法实现，则称之为方法重载。<br>代码示例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class A&#123;</span><br><span class="line">	public void methodA()&#123;&#125;;</span><br><span class="line">	public void methodA(int a)&#123;&#125;;</span><br><span class="line">    public void methodA(String str)&#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>定义：</p>
@@ -273,11 +288,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：重载与重写</li>
+        <li>本文标题：Java学习笔记</li>
         <li>本文作者：upbear</li>
-        <li>创建时间：2021-11-16 19:56:40</li>
+        <li>创建时间：2022-03-10 19:29:24</li>
         <li>
-            本文链接：https://up-bear.github.io/2021/11/16/chong-zai-yu-chong-xie/
+            本文链接：https://up-bear.github.io/2022/03/10/java-xue-xi-bi-ji/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -294,13 +309,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2021/11/16/zhu-jie-yu-fan-she/"
+                           href="/2022/03/17/wen-ti-cai-keng-hui-zong/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">注解与反射</span>
+                                <span class="post-nav-title-item">问题踩坑汇总</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -310,10 +325,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/11/15/springboot-zhu-jie/"
+                           href="/2022/01/19/springboot-yuan-ma-bi-ji/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">SpringBoot-注解</span>
+                                <span class="post-nav-title-item">SpringBoot源码笔记</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -530,7 +545,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD"><span class="nav-number">1.</span> <span class="nav-text">重载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-number">2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%86%99"><span class="nav-number">3.</span> <span class="nav-text">重写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B%E4%B8%8E%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text">向上转型与向下转型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B"><span class="nav-number">4.1.</span> <span class="nav-text">向上转型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B%E7%BB%8F%E5%85%B8%E4%BE%8B%E9%A2%98"><span class="nav-number">4.2.</span> <span class="nav-text">向上转型经典例题</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8D%E5%B0%84%E4%B8%8E%E6%B3%A8%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">反射与注解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E8%A7%A3Annotation"><span class="nav-number">1.0.1.</span> <span class="nav-text">注解Annotation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E5%B0%84Reflection"><span class="nav-number">1.0.2.</span> <span class="nav-text">反射Reflection</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD%E4%B8%8E%E9%87%8D%E5%86%99"><span class="nav-number">2.</span> <span class="nav-text">重载与重写</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD"><span class="nav-number">2.0.1.</span> <span class="nav-text">重载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-number">2.0.2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%86%99"><span class="nav-number">2.0.3.</span> <span class="nav-text">重写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B%E4%B8%8E%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B"><span class="nav-number">2.0.4.</span> <span class="nav-text">向上转型与向下转型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B"><span class="nav-number">2.0.4.1.</span> <span class="nav-text">向上转型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B%E7%BB%8F%E5%85%B8%E4%BE%8B%E9%A2%98"><span class="nav-number">2.0.4.2.</span> <span class="nav-text">向上转型经典例题</span></a></li></ol></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>

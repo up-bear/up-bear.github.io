@@ -9,7 +9,7 @@
     
     <title>
         
-            thymeleaf |
+            图书馆 |
         
         upbear
     </title>
@@ -184,7 +184,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">thymeleaf</span>
+            <span class="title-hover-animation">图书馆</span>
         </div>
 
         
@@ -202,39 +202,9 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-10-30 15:17:24
+        <i class="fas fa-edit"></i>&nbsp;2023-02-25 20:17:43
     </span>
     
-        <span class="article-categories article-meta-item">
-            <i class="fas fa-folder"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/categories/SpringBoot/">SpringBoot</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        &gt; <a href="/categories/html/">html</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fas fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/bootstrap/">bootstrap</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/thymeleaf/">thymeleaf</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
     
 
     
@@ -253,39 +223,24 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="动态包含页面"><a href="#动态包含页面" class="headerlink" title="动态包含页面"></a>动态包含页面</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    $(<span class="string">&quot;#head&quot;</span>).load(<span class="string">&quot;public/head.html&quot;</span>);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="IDEA创建SpringBoot项目"><a href="#IDEA创建SpringBoot项目" class="headerlink" title="IDEA创建SpringBoot项目"></a>IDEA创建SpringBoot项目</h3><h4 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h4><p>重定向的默认访问路径是Resource/templates,想要访问Resource/static下的静态资源返回字符串要明确添加redirect，例如 return “redirect:html/hello.html”</p>
-<h3 id="bootstrap-amp-thymeleaf"><a href="#bootstrap-amp-thymeleaf" class="headerlink" title="bootstrap&amp;thymeleaf"></a>bootstrap&amp;thymeleaf</h3><p>二者不兼容：bootstrap静态页面经由thymeleaf动态打开后静态页面样式消失</p>
-<h3 id="动态创建列表"><a href="#动态创建列表" class="headerlink" title="动态创建列表"></a>动态创建列表</h3><p>代码示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;thead&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;th&gt;管理者名称&lt;/th&gt;</span><br><span class="line">        &lt;th&gt;手机&lt;/th&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;/thead&gt;</span><br><span class="line">    &lt;tbody&gt;</span><br><span class="line">    &lt;tr th:each=&quot;manager : $&#123;manager_list&#125;&quot;&gt;</span><br><span class="line">        &lt;td th:text=&quot;$&#123;manager.getName()&#125;&quot;&gt;&lt;/td&gt;</span><br><span class="line">        &lt;td th:text=&quot;$&#123;manager.phone&#125;&quot;&gt;&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;/tbody&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>向request中放入一个名manager_list的List类型对象。<br> 向Request、Model、ModelAndView中放入数据，都是一样的效果，因为三者最终都将数据放入了同一个地方（雷神SpringBoot2中有讲）</li>
-<li>使用Thymeleaf取数据，显示在列表中。<br> ${manager_list}:取出request中key为manager_list的对象<br> ${manager.getName()}和${manager.phone}两种方法都可以获取对象manager的属性</li>
+            <h1 id="Spring-IOC"><a href="#Spring-IOC" class="headerlink" title="Spring IOC"></a>Spring IOC</h1><ol>
+<li>博主：SharpCJ’s blog。篇名：SpringIOC 二—— 容器 和 Bean的深入理解</li>
 </ol>
-<h3 id="Thymeleaf常见错误"><a href="#Thymeleaf常见错误" class="headerlink" title="Thymeleaf常见错误"></a>Thymeleaf常见错误</h3><ol>
-<li>路径拼写错误。<br> 使用了Thymeleaf模板，默认使用了@Controller类的字符串返回类型会被当作转发请求，且返回的字符串不需要带后缀”.html’，因为Thymeleaf会默认去寻找html文件。如果想使用重定向，需要使用：return “redirect:请求路径”。</li>
-<li>thymeleaf获取request、session中的参数错误。<br> 使用thymeleaf表达式 ${…} 获取数据时，一定要确保在到达该页面前一定已经向对应的request、session中放入了要取的数据，否则也会造成错误。<br> 使用 ${对象.属性} 或 ${对象.方法} 获取数据时，一定确保属性名和方法名和Java类中的保持一致，即使少了一个字母也会报错</li>
+<h1 id="Spring-AOP"><a href="#Spring-AOP" class="headerlink" title="Spring AOP"></a>Spring AOP</h1><ol>
+<li>博主：SharpCJ’s blog。篇名：Spring AOP——Spring 中面向切面编程 。<a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/joy99/p/10941543.html" >https://www.cnblogs.com/joy99/p/10941543.html<i class="fas fa-external-link-alt"></i></a></li>
 </ol>
-<h3 id="background-image-url-拼接"><a href="#background-image-url-拼接" class="headerlink" title="background-image: url() 拼接"></a>background-image: url() 拼接</h3><p>设置背景</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:style</span>=<span class="string">&quot;&#x27;background:url(&#x27; + @&#123;/&lt;path-to-image&gt;&#125; + &#x27;);&#x27;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>根据属性值改变背景</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;media-object resource-card-image&quot;</span>  <span class="attr">th:style</span>=<span class="string">&quot;&#x27;background:url(&#x27; + @&#123;($&#123;collect.webLogo&#125;==&#x27;&#x27; ? &#x27;img/favicon.png&#x27; : $&#123;collect.webLogo&#125;)&#125; + &#x27;)&#x27;&quot;</span> &gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="行内写法（表达式内联）"><a href="#行内写法（表达式内联）" class="headerlink" title="行内写法（表达式内联）"></a>行内写法（表达式内联）</h3><p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;Hello, [[$&#123;session.user.name&#125;]]!&lt;/p&gt;</span><br></pre></td></tr></table></figure>
-<p>禁用内联：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p th:inline=&quot;none&quot;&gt;A double array looks like this: [[1, 2, 3], [4, 5]]!&lt;/p&gt;</span><br></pre></td></tr></table></figure>
         </div>
 
         
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：thymeleaf</li>
+        <li>本文标题：图书馆</li>
         <li>本文作者：upbear</li>
-        <li>创建时间：2021-10-30 15:17:24</li>
+        <li>创建时间：2023-02-25 20:17:43</li>
         <li>
-            本文链接：https://up-bear.github.io/2021/10/30/thymeleaf/
+            本文链接：https://up-bear.github.io/2023/02/25/tu-shu-guan/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -299,29 +254,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2021/10/31/html/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">html</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/10/17/my-first-blog/"
+                           href="/2022/11/04/leetcode-shua-ti-bi-ji/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">my-first-blog</span>
+                                <span class="post-nav-title-item">leetcode刷题笔记</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -538,7 +478,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%8C%85%E5%90%AB%E9%A1%B5%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">动态包含页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IDEA%E5%88%9B%E5%BB%BASpringBoot%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.</span> <span class="nav-text">IDEA创建SpringBoot项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">2.1.</span> <span class="nav-text">重定向</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bootstrap-amp-thymeleaf"><span class="nav-number">3.</span> <span class="nav-text">bootstrap&amp;thymeleaf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BA%E5%88%97%E8%A1%A8"><span class="nav-number">4.</span> <span class="nav-text">动态创建列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thymeleaf%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF"><span class="nav-number">5.</span> <span class="nav-text">Thymeleaf常见错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#background-image-url-%E6%8B%BC%E6%8E%A5"><span class="nav-number">6.</span> <span class="nav-text">background-image: url() 拼接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E5%86%85%E5%86%99%E6%B3%95%EF%BC%88%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%86%85%E8%81%94%EF%BC%89"><span class="nav-number">7.</span> <span class="nav-text">行内写法（表达式内联）</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-IOC"><span class="nav-number">1.</span> <span class="nav-text">Spring IOC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-AOP"><span class="nav-number">2.</span> <span class="nav-text">Spring AOP</span></a></li></ol>
     </div>
 </div>
         </aside>
