@@ -9,7 +9,7 @@
     
     <title>
         
-            分类: Java |
+            Flutter学习笔记 |
         
         upbear
     </title>
@@ -83,7 +83,7 @@
                         </li>
                     
                         <li class="menu-item">
-                            <a class="active"
+                            <a class=""
                                href="/categories"
                             >
                                 分类
@@ -146,7 +146,7 @@
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class="active"
+                    <a class=""
                        href="/categories">分类</a>
                 </li>
             
@@ -181,42 +181,181 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="category-container">
-        <div class="category-name">
-            <i class="fas fa-folder"></i>&nbsp;Java
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Flutter学习笔记</span>
         </div>
-        <div class="category-post-list">
-            
-<div class="archive-list-container">
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/favicon.ico">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">upbear</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2024-01-01 11:33:10
+    </span>
     
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2022</span>
-                <span class="archive-year-post-count">[1]</span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
             </div>
-            <ul class="article-list">
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/03/10/java-xue-xi-bi-ji/"
-                        >Java学习笔记</a>
-                        <span class="article-date">03-10</span>
-                    </li>
-                
-            </ul>
-        </section>
-    
-</div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="打包APK"><a href="#打包APK" class="headerlink" title="打包APK"></a>打包APK</h1><h2 id="应用图标"><a href="#应用图标" class="headerlink" title="应用图标"></a>应用图标</h2><p>工具包：flutter_launcher_icons</p>
+<p>yml配置</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">dev_dependencies:</span></span><br><span class="line">  <span class="attr">flutter_launcher_icons:</span> <span class="string">&quot;^0.13.1&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">flutter_launcher_icons:</span></span><br><span class="line">  <span class="attr">android:</span> <span class="string">&quot;launcher_icon&quot;</span></span><br><span class="line">  <span class="comment"># ios平台开启</span></span><br><span class="line">  <span class="attr">ios:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 图标位置</span></span><br><span class="line">  <span class="attr">image_path:</span> <span class="string">&quot;assets/icon/icon.png&quot;</span></span><br><span class="line">  <span class="attr">min_sdk_android:</span> <span class="number">21</span> <span class="comment"># android min sdk min:16, default 21</span></span><br><span class="line">  <span class="attr">web:</span></span><br><span class="line">    <span class="attr">generate:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">image_path:</span> <span class="string">&quot;path/to/image.png&quot;</span></span><br><span class="line">    <span class="attr">background_color:</span> <span class="string">&quot;#hexcode&quot;</span></span><br><span class="line">    <span class="attr">theme_color:</span> <span class="string">&quot;#hexcode&quot;</span></span><br><span class="line">  <span class="attr">windows:</span></span><br><span class="line">    <span class="attr">generate:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">image_path:</span> <span class="string">&quot;path/to/image.png&quot;</span></span><br><span class="line">    <span class="attr">icon_size:</span> <span class="number">48</span> <span class="comment"># min:48, max:256, default: 48</span></span><br><span class="line">  <span class="attr">macos:</span></span><br><span class="line">    <span class="attr">generate:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">image_path:</span> <span class="string">&quot;path/to/image.png&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>运行命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flutter pub get</span><br><span class="line">flutter pub run flutter_launcher_icons</span><br></pre></td></tr></table></figure>
+
+<h2 id="build-APK"><a href="#build-APK" class="headerlink" title="build APK"></a>build APK</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">flutter build apk --debug</span><br><span class="line">flutter build apk --release</span><br><span class="line"><span class="comment"># 打包中忽略 IconData的优化问题</span></span><br><span class="line">flutter build apk --release --no-tree-shake-icons</span><br></pre></td></tr></table></figure>
+
 
         </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：Flutter学习笔记</li>
+        <li>本文作者：upbear</li>
+        <li>创建时间：2024-01-01 11:33:10</li>
+        <li>
+            本文链接：https://up-bear.github.io/2024/01/01/flutter-xue-xi-bi-ji/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2023/12/31/mallchat-bi-ji/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">MallChat笔记</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
     </div>
-    <div class="category-paginator">
-        <div class="paginator">
     
 
+        
+            
+    <div class="valine-container">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script data-pjax>
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'kWc8GocMTp4arF205KgVckzN-gzGzoHsz',
+                    appKey: 'BdNz6qw6OQmWGoDSnTF3wbWF',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '尽情鞭挞我吧🤤',
+                    lang: 'zh-CN'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'upbear';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('true') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
     
 </div>
 
+            </div>
+        
     </div>
 </div>
 
@@ -263,6 +402,27 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -318,6 +478,14 @@
     </div>
 
     
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%93%E5%8C%85APK"><span class="nav-number">1.</span> <span class="nav-text">打包APK</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9B%BE%E6%A0%87"><span class="nav-number">1.1.</span> <span class="nav-text">应用图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#build-APK"><span class="nav-number">1.2.</span> <span class="nav-text">build APK</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
 
     <div class="image-viewer-container">
     <img src="">
@@ -372,6 +540,8 @@
 
 
 <div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/toc.js"></script>
     
 </div>
 
